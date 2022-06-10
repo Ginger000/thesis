@@ -16,17 +16,42 @@ function Overlay() {
         <br />
         dev collective
       </a>
-      {/* <div style={{ position: 'absolute', top: 40, left: 40, fontSize: '13px' }}>bad —</div> */}
-      <div className='dropdown'>
-        {/* <button style={{background: 'transparent', border:"none", padding:'1rem', fontSize:'1rem', color:'white'}}>THEORY</button> */}
-        <button className='dropbtn'>THEORY</button>
-        <div className='dropdown-content'>
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-      </div>
-      <div className='dropdown-demo1'>
+      <header>
+        <nav className='navbar'>
+          <div className='catalogue'>
+            <h3><a href="#" className="catalogue-logo">CATALOGUE
+            <span className='arrow'></span>
+            </a></h3>
+          </div>
+          <ul className="menu">
+          <li><a href="#" className="menu-link">Web-Home</a></li>
+
+            <li><a href="#" className="menu-link">Introduction</a></li>
+            <li className='has-dropdown'>
+              <a href="#" className="menu-link">Theory
+              </a>
+              <ul className="submenu">
+                <li><a href="#" className="menu-link">Analogy</a></li>
+                <li><a href="#" className="menu-link">System</a></li>
+                <li><a href="#" className="menu-link">Physics</a></li>
+              </ul>
+            </li>
+            <li className='has-dropdown'>
+              <a href="#" className="menu-link">Practice</a>
+              <ul className="submenu">
+                <li><a href="#" className="menu-link">Demo-1</a></li>
+                <li><a href="#" className="menu-link">Demo-2</a></li>
+                <li><a href="#" className="menu-link">Demo-3</a></li>
+                <li><a href="#" className="menu-link">Travel</a></li>
+              </ul>
+            </li>
+            <li><a href="#" className="menu-link">Future Industry</a></li>
+            <li><a href="#" className="menu-link">Thanks</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+      {/* <div className='dropdown-demo1'>
         <button className='dropbtn'>DEMO-1</button>
         <div className='dropdown-content'>
           <a href="#">
@@ -57,7 +82,7 @@ function Overlay() {
             <img src={gif3} alt="" />
           </a>
         </div>
-      </div>
+      </div> */}
 
       <div style={{ position: 'absolute', bottom: 40, right: 40, fontSize: '13px' }}>07/02/2022</div>
     </div>

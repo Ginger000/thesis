@@ -12,7 +12,7 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 body {
@@ -38,11 +38,89 @@ svg {
   fill: white;
 }
 
-.dropdown {
+/* .dropdown {
   position: absolute;
   top: 40px;
   left: 40px;
   display: inline-block;
+} */
+
+nav {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  display: inline-block;
+}
+
+.menu {
+  margin: 0;
+  /* hide menu */
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 200ms ease-in-out;
+}
+
+/* reveal menu */
+
+.catalogue:hover + .menu, .menu:hover{
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+
+nav:hover .arrow {
+  
+  transform: rotate(-45deg);
+}
+
+
+
+.catalogue{
+  padding: 0.5rem;
+}
+
+.menu li{
+  /* list-style: none; */
+}
+
+.menu li a {
+  /* padding: 1rem 1.5rem; */
+  display: block;
+  /* padding: 0.5em 0; */
+}
+
+.has-dropdown{
+  position:relative
+}
+.submenu{
+  /* position:absolute; */
+  left:0;
+  white-space: nowrap;
+  min-width:9em
+}
+
+.submenu >li > a{
+  /* padding: 0.8em 1.5em; */
+}
+
+.menu > li:hover>a, .submenu > li:hover > a {
+  background-color: #ffffff41;
+}
+
+.arrow {
+  width:0.5em;
+  height: 0.5em;
+  display:inline-block;
+  vertical-align: middle;
+  border-left: 0.15em solid currentColor;
+  border-bottom: 0.15em solid currentColor;
+  transform: rotate(45deg);
+  margin-top: -0.25em;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  transition: transform 200ms ease-in-out;
+  
 }
 
 .dropdown-demo1 {
@@ -100,4 +178,37 @@ svg {
 
 .preview-text {
   font-size: 0.8rem;
+}
+
+@media only screen and (max-width: 920px) {
+  nav {
+    width: 80%;
+  }
+
+  .menu {
+    background-color: #ffffff93;
+    
+  }
+
+  .menu > li {
+    list-style: none;
+    padding: 0.5em 0.5em;
+    
+  }
+
+  .menu > li > a {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: rgb(81, 87, 136);
+  }
+
+  .submenu > li{
+    list-style: none;
+    padding: 0.3em 0.3em;
+  }
+
+  .submenu > li>a{
+    font-size: 1.1rem;
+    color: rgb(81, 87, 136);
+  }
 }
