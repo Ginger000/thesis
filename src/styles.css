@@ -45,10 +45,25 @@ svg {
   display: inline-block;
 } */
 
-nav {
+header{
   position: absolute;
+  width: 100vw;
   top: 40px;
-  left: 40px;
+  /* left: 40px; */
+  padding-left: 2rem;
+ 
+  display: block;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.fast-access{
+  padding-right: 3rem;
+}
+
+nav {
+  
   display: inline-block;
 }
 
@@ -57,9 +72,21 @@ nav {
   /* hide menu */
   opacity: 0;
   transform: scaleY(0);
+  
   transform-origin: top center;
   transition: transform 200ms ease-in-out;
 }
+
+.menu-open {
+  margin: 0;
+  /* hide menu */
+  opacity: 1;
+  transform: scaleY(1);
+  
+  transform-origin: top center;
+  transition: transform 1000ms ease-in-out;
+}
+
 
 /* reveal menu */
 
@@ -78,6 +105,15 @@ nav:hover .arrow {
 
 .catalogue{
   padding: 0.5rem;
+}
+
+.catalogue-LargeScreen{
+  display: inline-block;
+}
+
+.catalogue-MidSmaScreen{
+  display: none;
+  width: 100%;
 }
 
 .menu li{
@@ -123,31 +159,41 @@ nav:hover .arrow {
   
 }
 
-.dropdown-demo1 {
-  position: absolute;
-  top: 40px;
-  left: 840px;
+.arrow-open {
+  width:0.5em;
+  height: 0.5em;
+  display:inline-block;
+  vertical-align: middle;
+  border-left: 0.15em solid currentColor;
+  border-bottom: 0.15em solid currentColor;
+  transform: rotate(45deg);
+  margin-top: -0.25em;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  transition: transform 200ms ease-in-out;
+  
+}
+.dropdown-demo{
   display: inline-block;
+  position: relative;
 }
 
-.dropdown-demo2 {
+.dropdown-content{
   position: absolute;
-  top: 40px;
-  left: 1040px;
-  display: inline-block;
+  left: -240px;
 }
 
-.dropdown-demo3 {
-  position: absolute;
-  top: 40px;
-  left: 1240px;
-  display: inline-block;
+.demo-title {
+  width: 300px;
+}
+.demo-image{
+  width: 300px;
 }
 
 .dropbtn {
   background-color: transparent;
   color: white;
-  padding: 16px;
+  padding: 1.8rem;
   font-size: 1rem;
   border:none
 }
@@ -174,9 +220,11 @@ nav:hover .arrow {
 .dropdown-demo1:hover .dropdown-content {display: block;}
 .dropdown-demo2:hover .dropdown-content {display: block;}
 .dropdown-demo3:hover .dropdown-content {display: block;}
+.dropdown-demo:hover .dropdown-content {display: block;}
 
 
 .preview-text {
+  width:300px;
   font-size: 0.8rem;
 }
 
@@ -185,9 +233,18 @@ nav:hover .arrow {
     width: 80%;
   }
 
+  .catalogue-LargeScreen{
+    display: none;
+  }
+
+  .catalogue-MidSmaScreen{
+    display: inline-block;
+  }
+  
+
   .menu {
     background-color: #ffffff93;
-    
+    /* width: 80%; */
   }
 
   .menu > li {
@@ -210,5 +267,11 @@ nav:hover .arrow {
   .submenu > li>a{
     font-size: 1.1rem;
     color: rgb(81, 87, 136);
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .fast-access{
+    display: none;
   }
 }

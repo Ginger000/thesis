@@ -17,4 +17,11 @@ https://stackoverflow.com/questions/4502633/how-to-affect-other-elements-when-on
 
 https://stackoverflow.com/questions/19189361/css-hover-a-div-and-affect-the-child-of-of-its-brother
 
+drop down menu and hover effect, there are only css way or javascript way.
 
+Which is better?
+
+Idk, but for now I'm using javascript/react way
+animation can try framer-motion
+
+react functions are all javascript

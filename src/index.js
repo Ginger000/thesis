@@ -1,102 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import './styles.css'
-import gif1 from '../src/component/assets/gif-thumbnail-demo-1.gif'
-import gif2 from '../src/component/assets/gif-thumbnail-demo-2.gif'
-import gif3 from '../src/component/assets/gif-thumbnail-demo-3.gif'
+import './styles.css';
+import gif0 from '../src/component/assets/gif-thumbnail-demo-1.gif';
+import gif1 from '../src/component/assets/gif-thumbnail-demo-2.gif';
+import gif2 from '../src/component/assets/gif-thumbnail-demo-3.gif';
 import reportWebVitals from './reportWebVitals';
-// import Overlay from './component/Overlay';
+import CatalogueLScre from './component/CatalogueLScre';
+import CatalogueMSScre from './component/CatalogueMSScre';
+import DemoCard from './component/DemoCard';
+import DemoThubnailData from './component/assets/DemoThubnailData';
 
 function Overlay() {
-  return (
-    <div className='overlay'>
-      <a href="https://pmnd.rs/" style={{ position: 'absolute', bottom: 40, left: 90, fontSize: '13px' }}>
-        pmnd.rs
-        <br />
-        dev collective
-      </a>
-      <header>
-        <nav className='navbar'>
-          <div className='catalogue'>
-            <h3><a href="#" className="catalogue-logo">CATALOGUE
-            <span className='arrow'></span>
-            </a></h3>
-          </div>
-          <ul className="menu">
-          <li><a href="#" className="menu-link">Web-Home</a></li>
+    return (
+        <div className="overlay">
+            <a
+                href="https://pmnd.rs/"
+                style={{
+                    position: 'absolute',
+                    bottom: 40,
+                    left: 90,
+                    fontSize: '13px',
+                }}
+            >
+                pmnd.rs
+                <br />
+                dev collective
+            </a>
+            <header>
+                <nav className="navbar">
+                    <CatalogueLScre />
+                    <CatalogueMSScre />
+                </nav>
+                <div className='fast-access'>
+                  {DemoThubnailData.map((demo, idx) => <DemoCard key={idx} buttonName={demo.buttonName} title={demo.title} description={demo.description} img={demo.img} />)}
+                </div>
+            </header>
 
-            <li><a href="#" className="menu-link">Introduction</a></li>
-            <li className='has-dropdown'>
-              <a href="#" className="menu-link">Theory
-              </a>
-              <ul className="submenu">
-                <li><a href="#" className="menu-link">Analogy</a></li>
-                <li><a href="#" className="menu-link">System</a></li>
-                <li><a href="#" className="menu-link">Physics</a></li>
-              </ul>
-            </li>
-            <li className='has-dropdown'>
-              <a href="#" className="menu-link">Practice</a>
-              <ul className="submenu">
-                <li><a href="#" className="menu-link">Demo-1</a></li>
-                <li><a href="#" className="menu-link">Demo-2</a></li>
-                <li><a href="#" className="menu-link">Demo-3</a></li>
-                <li><a href="#" className="menu-link">Travel</a></li>
-              </ul>
-            </li>
-            <li><a href="#" className="menu-link">Future Industry</a></li>
-            <li><a href="#" className="menu-link">Thanks</a></li>
-          </ul>
-        </nav>
-      </header>
-      
-      {/* <div className='dropdown-demo1'>
-        <button className='dropbtn'>DEMO-1</button>
-        <div className='dropdown-content'>
-          <a href="#">
-            <h5>Demo-1: Collective Urban Development </h5>
-            <p className='preview-text'>An agent-based model of the relationship of urban development pattern and solar radiation energy change, using cellar automata algorithm and earth surface energy theory. </p>
-            <img src={gif1} alt="" />
-          </a>
+
+            <div
+                style={{
+                    position: 'absolute',
+                    bottom: 40,
+                    right: 40,
+                    fontSize: '13px',
+                }}
+            >
+                07/02/2022
+            </div>
         </div>
-      </div>
-
-      <div className='dropdown-demo2'>
-        <button className='dropbtn'>DEMO-2</button>
-        <div className='dropdown-content'>
-          <a href="#">
-            <h5>Demo-2: Life Parameterization </h5>
-            <p className='preview-text'> Wildlife migration and walking city: dynamic and complex system simulation </p>
-            <img src={gif2} alt="" />
-          </a>
-        </div>
-      </div>
-
-      <div className='dropdown-demo3'>
-        <button className='dropbtn'>DEMO-3</button>
-        <div className='dropdown-content'>
-          <a href="#">
-            <h5>Demo-3: Green Stormwater Infrastructure Design Tool </h5>
-            <p className='preview-text'> parameterize soil and precepitation and generate green stormwater Infrastructure design recommendation </p>
-            <img src={gif3} alt="" />
-          </a>
-        </div>
-      </div> */}
-
-      <div style={{ position: 'absolute', bottom: 40, right: 40, fontSize: '13px' }}>07/02/2022</div>
-    </div>
-  )
+    );
 }
 
-export default Overlay
+export default Overlay;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-    <Overlay />
-  </React.StrictMode>
+    <React.StrictMode>
+        <App />
+        <Overlay />
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
