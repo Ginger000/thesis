@@ -1,3 +1,5 @@
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+
 import * as THREE from 'three'
 import { Suspense } from 'react'
 import { Canvas, useThree, useFrame } from '@react-three/fiber'
@@ -7,6 +9,7 @@ import { LayerMaterial, Depth, Noise } from 'lamina'
 
 function App() {
   return (
+    <Router>
     <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 10], fov: 22 }}>
       <Bg />
       <Suspense fallback={null}>
@@ -15,6 +18,7 @@ function App() {
         <Rig />
       </Suspense>
     </Canvas>
+    </Router>
   );
 }
 
