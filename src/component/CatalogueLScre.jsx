@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function CatalogueLScre() {
     return (
         <div className="catalogue-LargeScreen">
@@ -11,15 +13,18 @@ function CatalogueLScre() {
             </div>
             <ul className="menu">
                 <li>
-                    <a href="#" className="menu-link">
-                        Web-Home
-                    </a>
+                  <Link to='/' className="menu-link">Web-Home</Link>
+                    {/* <a href="#" className="menu-link">
+                      Web-Home
+                    </a> */}
                 </li>
 
                 <li>
-                    <a href="#" className="menu-link">
+                <Link to='/introduction' className="menu-link">Introduction</Link>
+
+                    {/* <a href="#" className="menu-link">
                         Introduction
-                    </a>
+                    </a> */}
                 </li>
                 <li className="has-dropdown">
                     <a href="#" className="menu-link">

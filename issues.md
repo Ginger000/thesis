@@ -25,3 +25,15 @@ Idk, but for now I'm using javascript/react way
 animation can try framer-motion
 
 react functions are all javascript
+
+react routing system
+https://medium.com/how-to-react/how-to-use-react-router-in-your-react-js-project-7e1d469a9716
+
+useLocation
+make route an variable
+https://stackoverflow.com/questions/68407719/change-navbar-background-color-on-other-routes-in-reactjs
+
+
+
+
+

@@ -1,59 +1,96 @@
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import WebHome from './pages/WebHome';
+import Analogy from './pages/Analogy';
+import Demo1 from './pages/Demo1';
+import Demo2 from './pages/Demo2';
+import Demo3 from './pages/Demo3';
+import FutureIndustry from './pages/FutureIndustry';
+import Introduction from './pages/Introduction';
+import Physics from './pages/Physics';
+import System from './pages/System';
+import Thanks from './pages/Thanks';
+import Travel from './pages/Travel';
+import CatalogueLScre from './component/CatalogueLScre';
+import CatalogueMSScre from './component/CatalogueMSScre';
+import DemoCard from './component/DemoCard';
+import DemoThubnailData from './component/assets/DemoThubnailData';
 
-import * as THREE from 'three'
-import { Suspense } from 'react'
-import { Canvas, useThree, useFrame } from '@react-three/fiber'
-import { Text } from '@react-three/drei'
-import { LayerMaterial, Depth, Noise } from 'lamina'
-//import Blob from './Blob'
+
 
 function App() {
+
   return (
     <Router>
-    <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 10], fov: 22 }}>
-      <Bg />
-      <Suspense fallback={null}>
+                <main className='container' >
+                    <Routes>
+                        <Route path="/" element={<WebHome />} />
+                        <Route
+                            path="/introduction"
+                            element={<Introduction />}
+                        />
+                        <Route path="/theory/analogy" element={<Analogy />} />
+                        <Route path="/theory/system" element={<System />} />
+                        <Route path="/theory/Physics" element={<Physics />} />
+                        <Route path="/practice/demo-1" element={<Demo1 />} />
+                        <Route path="/practice/demo-2" element={<Demo2 />} />
+                        <Route path="/practice/demo-3" element={<Demo3 />} />
+                        <Route path="/practice/travel" element={<Travel />} />
+                        <Route
+                            path="/practice/futureIndustry"
+                            element={<FutureIndustry />}
+                        />
+                        <Route path="/practice/thanks" element={<Thanks />} />
+                    </Routes>
+                </main>
+            
 
-        <Caption>{`Digital \nEmulation\nOF\nEcological System.`}</Caption>
-        <Rig />
-      </Suspense>
-    </Canvas>
-    </Router>
+            <a
+                href="https://pmnd.rs/"
+                style={{
+                    position: 'absolute',
+                    bottom: 40,
+                    left: 90,
+                    fontSize: '13px',
+                }}
+            >
+                pmnd.rs
+                <br />
+                dev collective
+            </a>
+            <header>
+                <nav className="navbar">
+                    <CatalogueLScre />
+                    <CatalogueMSScre />
+                </nav>
+                <div className="fast-access">
+                    {DemoThubnailData.map((demo, idx) => (
+                        <DemoCard
+                            key={idx}
+                            buttonName={demo.buttonName}
+                            title={demo.title}
+                            description={demo.description}
+                            img={demo.img}
+                        />
+                    ))}
+                </div>
+            </header>
+
+            <div
+                style={{
+                    position: 'absolute',
+                    bottom: 40,
+                    right: 40,
+                    fontSize: '13px',
+                }}
+            >
+                07/02/2022
+            </div>
+            </Router>
   );
 }
 
-function Caption({ children }) {
-  const { width } = useThree((state) => state.viewport)
-  return (
-    <Text
-      position={[0, 0, -5]}
-      lineHeight={0.8}
-      font="/Ki-Medium.ttf"
-      fontSize={width / 8}
-      material-toneMapped={false}
-      anchorX="center"
-      anchorY="middle">
-      {children}
-    </Text>
-  )
-}
 
-function Rig({ v = new THREE.Vector3() }) {
-  return useFrame((state) => {
-    state.camera.position.lerp(v.set(state.mouse.x / 2, state.mouse.y / 2, 10), 0.05)
-  })
-}
-
-function Bg() {
-  return (
-    <mesh scale={100}>
-      <boxGeometry args={[1, 1, 1]} />
-      <LayerMaterial side={THREE.BackSide}>
-        <Depth colorB="red" colorA="skyblue" alpha={1} mode="normal" near={130} far={200} origin={[100, 100, -100]} />
-        <Noise mapping="local" type="white" scale={1000} colorA="white" colorB="black" mode="subtract" alpha={0.2} />
-      </LayerMaterial>
-    </mesh>
-  )
-}
 
 export default App;
